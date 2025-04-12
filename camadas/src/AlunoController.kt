@@ -2,7 +2,10 @@
 class AlunoController(private val alunoService: AlunoService) {
     // Create
     fun cadastrarAluno(id: String, nome: String, idade: Int, curso: String, nota: Double) {
-        val aluno = Aluno(id = id, nome = nome, idade = idade, curso = curso, nota = nota)
+        val aluno = Aluno(
+            id = id, nome = nome, idade = idade, curso = curso, nota = nota,
+            idPessoa = TODO()
+        )
         alunoService.cadastrarAluno(aluno)
         println("Aluno inserido com sucesso! (Controller)")
     }
@@ -42,7 +45,10 @@ class AlunoController(private val alunoService: AlunoService) {
 
     // Update
     fun alterarAlunoPeloId(id: String, nome: String, idade: Int, curso: String, nota: Double) {
-        val aluno = Aluno(id, nome, idade, curso, nota)
+        val aluno = Aluno(
+            id, nome, idade, curso, nota,
+            idPessoa = TODO()
+        )
         alunoService.alterarAlunoPeloId(aluno)
     }
 
