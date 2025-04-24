@@ -1,13 +1,13 @@
-open class ContaBancaria(val titular: String) {
+open class Conta(val numeroConta: String, val titular: Cliente) {
     private var saldo: Double = 0.0
 
-    fun getSaldo() {
+    open fun getSaldo() {
         println("------------------------")
         println("Saldo: R$${saldo}")
         println("------------------------")
     }
 
-    fun depositar(valor: Double) {
+    open fun depositar(valor: Double) {
         if (valor > 0) {
             saldo += valor
             println("Depósito: R$${valor}")
@@ -16,7 +16,7 @@ open class ContaBancaria(val titular: String) {
         }
     }
 
-    fun sacar(valor: Double) {
+    open fun sacar(valor: Double) {
         if (valor > saldo) {
             println("Valor indisponível para saque.")
         } else {
