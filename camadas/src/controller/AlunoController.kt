@@ -1,13 +1,16 @@
+package controller
+import model.Aluno
+import service.AlunoService
+
 // Controller deve receber serviços e não repositórios via injeção de dependência
 class AlunoController(private val alunoService: AlunoService) {
     // Create
     fun cadastrarAluno(id: String, nome: String, idade: Int, curso: String, nota: Double) {
         val aluno = Aluno(
-            id = id, nome = nome, idade = idade, curso = curso, nota = nota,
-            idPessoa = TODO()
+            id = id, nome = nome, idade = idade, curso = curso, nota = nota, idPessoa = id
         )
         alunoService.cadastrarAluno(aluno)
-        println("Aluno inserido com sucesso! (Controller)")
+        println("model.Aluno inserido com sucesso! (Controller)")
     }
 
     // Read
@@ -25,10 +28,10 @@ class AlunoController(private val alunoService: AlunoService) {
     fun buscarAlunoPeloNome(nome: String) {
         val aluno = alunoService.buscarAlunoPeloNome(nome)
         if (aluno != null) {
-            println("Aluno com nome '${aluno.nome}'")
+            println("model.Aluno com nome '${aluno.nome}'")
             aluno.exibirDados()
         } else {
-            println("Aluno não encontrado.\n")
+            println("model.Aluno não encontrado.\n")
         }
     }
 
@@ -36,18 +39,17 @@ class AlunoController(private val alunoService: AlunoService) {
     fun buscarAlunoPeloId(id: String) {
         val aluno = alunoService.buscarAlunoPeloId(id)
         if (aluno != null) {
-            println("Aluno com id '${aluno.id}'")
+            println("model.Aluno com id '${aluno.id}'")
             aluno.exibirDados()
         } else {
-            println("Aluno não encontrado.")
+            println("model.Aluno não encontrado.")
         }
     }
 
     // Update
-    fun alterarAlunoPeloId(id: String, nome: String, idade: Int, curso: String, nota: Double) {
+    fun alterarAlunoPeloId(id: String, nome: String, idade: Int, curso: String, nota: Double, idPessoa: String) {
         val aluno = Aluno(
-            id, nome, idade, curso, nota,
-            idPessoa = TODO()
+            id, nome, idade, curso, nota, idPessoa
         )
         alunoService.alterarAlunoPeloId(aluno)
     }

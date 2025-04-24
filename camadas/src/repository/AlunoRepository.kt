@@ -1,10 +1,13 @@
+package repository
+import model.Aluno
+
 class AlunoRepository {
     private val alunos = mutableListOf<Aluno>()
 
     // Create
-    fun cadastrarAluno(aluno:Aluno) {
+    fun cadastrarAluno(aluno: Aluno) {
         alunos.add(aluno)
-        println("Aluno ${aluno.nome} cadastrado com sucesso! (Repository)")
+        println("model.Aluno ${aluno.nome} cadastrado com sucesso! (Repository)")
         aluno.exibirDados()
     }
 
@@ -45,7 +48,7 @@ class AlunoRepository {
             return "Nenhum aluno encontrado pelo id '${id}' (Repository)"
         } else {
             alunos.remove(alunoDeletar)
-            return "Aluno com id '${id}' deletado com sucesso"
+            return "model.Aluno com id '${id}' deletado com sucesso"
         }
     }
 }

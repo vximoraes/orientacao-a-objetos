@@ -1,3 +1,8 @@
+package service
+import model.Aluno
+
+import repository.AlunoRepository
+
 class AlunoService(private val alunoRepository: AlunoRepository) {
     // Create
     fun cadastrarAluno(aluno: Aluno): Aluno {

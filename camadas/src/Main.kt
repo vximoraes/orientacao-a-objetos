@@ -1,3 +1,8 @@
+import controller.AlunoController
+import model.Aluno
+import repository.AlunoRepository
+import service.AlunoService
+
 fun main() {
     // Instâncias
     val alunoRepository = AlunoRepository()

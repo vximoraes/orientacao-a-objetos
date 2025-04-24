@@ -1,4 +1,6 @@
-open class Pessoa(val idPessoa: Int) {
+package model
+
+open class Pessoa(val idPessoa: String) {
     open fun adicionarPessoa(): String {
         return "Pessoa adicionada..."
     }
