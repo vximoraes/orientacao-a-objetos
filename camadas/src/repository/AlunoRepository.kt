@@ -1,5 +1,5 @@
 package repository
-import model.Aluno
+import models.Aluno
 
 class AlunoRepository {
     private val alunos = mutableListOf<Aluno>()
@@ -7,7 +7,7 @@ class AlunoRepository {
     // Create
     fun cadastrarAluno(aluno: Aluno) {
         alunos.add(aluno)
-        println("model.Aluno ${aluno.nome} cadastrado com sucesso! (Repository)")
+        println("Aluno ${aluno.nome} cadastrado com sucesso! (Repository)")
         aluno.exibirDados()
     }
 
@@ -23,15 +23,15 @@ class AlunoRepository {
 
     // Read Id
     fun buscarAlunoPeloId(id: String): Aluno? {
-        return alunos.find { it.id == id }
+        return alunos.find { it.idPessoa == id }
     }
 
     // Update Id
     fun alterarAlunoPeloId(aluno: Aluno): Aluno? {
-        val alunoRemover = alunos.find { it.id == aluno.id }
+        val alunoRemover = alunos.find { it.idPessoa == aluno.idPessoa }
 
         if (alunoRemover == null) {
-            println("Nenhum aluno encontrado pelo id '${aluno.id}' (Repository)")
+            println("Nenhum aluno encontrado pelo id '${aluno.idPessoa}' (Repository)")
         } else {
             alunos.remove(alunoRemover)
             alunos.add(aluno)
@@ -42,13 +42,13 @@ class AlunoRepository {
 
     // Delete Id
     fun deletarAlunoPeloId(id: String): String {
-        val alunoDeletar = alunos.find { it.id == id }
+        val alunoDeletar = alunos.find { it.idPessoa == id }
 
         if (alunoDeletar == null) {
             return "Nenhum aluno encontrado pelo id '${id}' (Repository)"
         } else {
             alunos.remove(alunoDeletar)
-            return "model.Aluno com id '${id}' deletado com sucesso"
+            return "Aluno com id '${id}' deletado com sucesso"
         }
     }
 }

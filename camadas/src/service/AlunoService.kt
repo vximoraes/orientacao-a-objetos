@@ -1,5 +1,5 @@
 package service
-import model.Aluno
+import models.Aluno
 
 import repository.AlunoRepository
 

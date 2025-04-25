@@ -1,4 +1,4 @@
-package model
+package models
 
 open class Pessoa(val idPessoa: String) {
     open fun adicionarPessoa(): String {
